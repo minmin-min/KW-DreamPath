@@ -1,10 +1,10 @@
 import React from "react";
-import kw_logo from "./assets/kw_logo.png";
-import kw_circle from "./assets/kw_circle.png";
-import wooni from "./assets/wooni.png";
-import lecture from "./assets/lecture.png";
-import friends from "./assets/friends.png";
-import job from "./assets/job.png";
+import kw_logo from "../assets/kw_logo.png";
+import kw_circle from "../assets/kw_circle.png";
+import wooni from "../assets/wooni.png";
+import lecture from "../assets/lecture.png";
+import friends from "../assets/friends.png";
+import job from "../assets/job.png";
 
 const MainPage = () => {
   return (
