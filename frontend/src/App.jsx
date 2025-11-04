@@ -1,7 +1,7 @@
 // src/App.jsx
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import MainPage from "./pages/MainPage";
+import MainPage from "./pages/Mainpage";
 import LecturePage from "./pages/LecturePage";
 import ClubPage from "./pages/ClubPage";
 import JobPage from "./pages/JobPage";
