@@ -9,6 +9,9 @@ import LecturePage from "./pages/LecturePage";
 import ClubPage from "./pages/ClubPage";
 import JobPage from "./pages/JobPage";
 
+// ✅ 새로 추가한 페이지
+import ChatPage from "./pages/ChatPage";
+
 function App() {
   return (
     <Routes>
@@ -16,6 +19,7 @@ function App() {
       <Route path="/lecture" element={<LecturePage />} />
       <Route path="/club" element={<ClubPage />} />
       <Route path="/job" element={<JobPage />} />
+      <Route path="/chat" element={<ChatPage />} />
     </Routes>
   );
 }
