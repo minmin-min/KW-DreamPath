@@ -1,28 +1,41 @@
 import React, { useState, useRef, useEffect } from "react";
 import mascot from "../assets/mascot.png";
 import sendIcon from "../assets/send.png";
+import { sendQuestion } from "../api/request.jsx"; // ✅ 백엔드 통합 파일 연결
 
 function ChatBox({ title }) {
   const [messages, setMessages] = useState([
     { sender: "bot", text: "궁금한 점을 입력해주세요 :)" },
   ]);
   const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
   const chatEndRef = useRef(null);
 
-  const handleSend = () => {
+  // ✅ 메시지 전송 (백엔드 연결)
+  const handleSend = async () => {
     if (input.trim() === "") return;
+
+    // 사용자 메시지 추가
     const newMessage = { sender: "user", text: input };
     setMessages((prev) => [...prev, newMessage]);
+    const question = input;
     setInput("");
+    setLoading(true);
 
-    setTimeout(() => {
-      setMessages((prev) => [
-        ...prev,
-        { sender: "bot", text: "좋은 질문이에요! 잠시만요 :)" },
-      ]);
-    }, 800);
+    // 🔹 FastAPI 서버로 요청 보내기
+    const answer = await sendQuestion(question, title);
+
+    // 봇 응답 추가
+    setMessages((prev) => [...prev, { sender: "bot", text: answer }]);
+    setLoading(false);
   };
 
+  // Enter 키로 전송
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") handleSend();
+  };
+
+  // 스크롤 항상 맨 아래로
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -71,6 +84,14 @@ function ChatBox({ title }) {
             )}
           </div>
         ))}
+
+        {/* 로딩 메시지 */}
+        {loading && (
+          <div className="flex justify-start mb-6 ml-10 text-gray-500 text-sm">
+            답변을 불러오는 중입니다...
+          </div>
+        )}
+
         <div ref={chatEndRef} />
       </div>
 
@@ -86,7 +107,7 @@ function ChatBox({ title }) {
             placeholder="궁금한 점을 입력해주세요"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+            onKeyDown={handleKeyDown}
             className="flex-grow outline-none text-gray-800 text-[15px] bg-transparent"
           />
         </div>
@@ -94,9 +115,10 @@ function ChatBox({ title }) {
         {/* 전송 버튼 */}
         <button
           onClick={handleSend}
-          className="ml-1 flex justify-center items-center w-[42px] h-[42px] 
-          bg-white border border-gray-800 rounded-full shadow-md hover:scale-105 
-          transition-transform"
+          disabled={loading}
+          className={`ml-1 flex justify-center items-center w-[42px] h-[42px] 
+          bg-white border border-gray-800 rounded-full shadow-md transition-transform
+          ${loading ? "opacity-60 cursor-not-allowed" : "hover:scale-105"}`}
         >
           <img src={sendIcon} alt="전송" className="w-5 h-5" />
         </button>
