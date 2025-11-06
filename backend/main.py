@@ -38,13 +38,15 @@ def status():
     return {"status": "KW Chatbot backend running ✅"}
 
 # ✅ React 정적 파일 연결
-frontend_dir = Path(__file__).resolve().parent.parent / "frontend" / "dist"
 
-if not frontend_dir.exists():
-    raise RuntimeError(f"❌ React build 폴더를 찾을 수 없습니다: {frontend_dir}")
+# frontend_dir = Path(__file__).resolve().parent.parent / "frontend" / "dist"
 
-app.mount("/assets", StaticFiles(directory=frontend_dir / "assets"), name="assets")
+# if not frontend_dir.exists():
+#    raise RuntimeError(f"❌ React build 폴더를 찾을 수 없습니다: {frontend_dir}")
 
-@app.get("/{full_path:path}")
-def react_router(full_path: str):
-    return FileResponse(frontend_dir / "index.html")
+#app.mount("/assets", StaticFiles(directory=frontend_dir / "assets"), name="assets")
+
+#@app.get("/{full_path:path}")
+#def react_router(full_path: str):
+#    return FileResponse(frontend_dir / "index.html")
+

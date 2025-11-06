@@ -2,7 +2,7 @@
 import axios from "axios";
 
 // ✅ FastAPI 서버 주소 (필요시 IP 수정)
-const API_URL = "http://127.0.0.1:8000/rag";
+const API_URL = "https://owen-nondelicate-mai.ngrok-free.dev/rag";
 
 /**
  * 🔹 공통 챗봇 질의 함수
