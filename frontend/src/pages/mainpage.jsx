@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // ✅ 추가
 import kw_logo from "../assets/kw_logo.png";
 import kw_circle from "../assets/kw_circle.png";
 import wooni from "../assets/wooni.png";
@@ -7,6 +8,8 @@ import friends from "../assets/friends.png";
 import job from "../assets/job.png";
 
 const MainPage = () => {
+  const navigate = useNavigate(); // ✅ 페이지 이동용 훅
+
   return (
     <div className="relative min-h-screen flex flex-col items-center bg-gray-50 font-sans">
       {/* 상단 헤더 */}
@@ -37,7 +40,7 @@ const MainPage = () => {
       <div className="flex justify-center mt-[70px] w-8/12 space-x-[200px]">
         {/* 강의 */}
         <button
-          onClick={() => (window.location.href = "/lecture")}
+          onClick={() => navigate("/lecture")} // ✅ 변경
           className={`w-[200px] h-[200px] bg-white border-2 border-[#840E1E] rounded-[15px] 
           shadow-md flex flex-col items-center justify-center 
           hover:scale-105 transition-transform p-[10px]`}
@@ -48,7 +51,7 @@ const MainPage = () => {
 
         {/* 동아리 */}
         <button
-          onClick={() => (window.location.href = "/club")}
+          onClick={() => navigate("/club")} // ✅ 변경
           className={`w-[200px] h-[200px] bg-white border-2 border-[#840E1E] rounded-[15px] 
           shadow-md flex flex-col items-center justify-center 
           hover:scale-105 transition-transform p-[10px]`}
@@ -59,7 +62,7 @@ const MainPage = () => {
 
         {/* 취업 */}
         <button
-          onClick={() => (window.location.href = "/job")}
+          onClick={() => navigate("/job")} // ✅ 변경
           className={`w-[200px] h-[200px] bg-white border-2 border-[#840E1E] rounded-[15px] 
           shadow-md flex flex-col items-center justify-center 
           hover:scale-105 transition-transform p-[10px]`}
