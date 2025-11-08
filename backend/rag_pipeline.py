@@ -18,7 +18,7 @@ PG_DSN = {
     "host": "localhost",
     "dbname": "KWchatbot",  # ✅ 너희 DB 이름
     "user": "postgres",
-    "password": "6578",     # ✅ 너 비밀번호
+    "password": "130802",  # ✅ 너 비밀번호
 }
 SIM_THRESHOLD = 0.25  # 코사인 유사도 임계값 (낮을수록 더 많은 결과 허용)
 
@@ -83,11 +83,7 @@ def generate_answer(user_query, category=None):
         if rows:
             notices = []
             for 제목, 작성일, url in rows:
-                notices.append({
-                    "제목": 제목,
-                    "작성일": 작성일,
-                    "url": url or "#"
-                })
+                notices.append({"제목": 제목, "작성일": 작성일, "url": url or "#"})
             return notices
         else:
             return []
@@ -111,7 +107,9 @@ def generate_answer(user_query, category=None):
     # 5) 문맥(context) 구성
     context_items = []
     for i, (text, meta) in enumerate(rows, 1):
-        meta_str = json.dumps(meta, ensure_ascii=False) if not isinstance(meta, str) else meta
+        meta_str = (
+            json.dumps(meta, ensure_ascii=False) if not isinstance(meta, str) else meta
+        )
         context_items.append(f"-----\n본문:\n{text}\n메타데이터:\n{meta_str}")
     context = "\n".join(context_items)
 
