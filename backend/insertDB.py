@@ -6,7 +6,7 @@ from psycopg2 import sql
 try:
     conn = psycopg2.connect(
         host="localhost",
-        dbname="KW chatbot",   # ✅ 대문자 K 주의
+        dbname="kwchatbot",   # ✅ 대문자 K 주의
         user="postgres",
         password="3864"  # ✅ 네 비밀번호
     )
@@ -38,7 +38,7 @@ embedding_id_counter = 1
 
 
 # ------------------ JSON 파일 경로 ------------------
-file_path = r"C:\Users\ols11\KW-DreamPath\backend\DB_merged.json"  # ✅ 네 실제 경로
+file_path = r"C:\Users\ols11\KW-DreamPath\backend\최종_통합_DB.json"  # ✅ 네 실제 경로
 
 # 파일 열기
 try:
