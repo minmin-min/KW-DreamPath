@@ -15,9 +15,9 @@ load_dotenv()
 # ===== 기본 설정 =====
 PG_DSN = {
     "host": "localhost",
-    "dbname": "kwchatbot",
+    "dbname": "KW_CHAT123",
     "user": "postgres",
-    "password": "3864"
+    "password": "kk003300kk*"
 }
 SIM_THRESHOLD = 0.25
 
