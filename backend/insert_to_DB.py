@@ -3,17 +3,17 @@ import json
 
 # DB 연결 설정
 conn = psycopg2.connect(
-    host="localhost", dbname="KWchatbot", user="postgres", password="130802"
+    host="localhost", dbname="KWchatbot", user="postgres", password="6578"
 )
 cur = conn.cursor()
 
 # 시작 ID 값
-doc_id_counter = 921
-chunk_id_counter = 1733
-embedding_id_counter = 1733
+doc_id_counter = 1
+chunk_id_counter = 1
+embedding_id_counter = 1
 
 # JSONL 파일 열기
-with open("C:/Users/kmins/Downloads/DB통합본.json", "r", encoding="utf-8") as f:
+with open(r"C:\KW-DreamPath\backend\통합버전.json", "r", encoding="utf-8") as f:
     for line in f:
         doc = json.loads(line)
 
