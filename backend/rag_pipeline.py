@@ -15,9 +15,15 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_MODEL = "gpt-3.5-turbo"  # 필요 시 gpt-4o 등으로 변경 가능
 PG_DSN = {
     "host": "localhost",
+<<<<<<< HEAD
     "dbname": "KW_chatbot",  #  DB 이름
     "user": "postgres",
     "password": "130802",  #  비밀번호
+=======
+    "dbname": "KWchatbot",  #  DB 이름
+    "user": "postgres",
+    "password": "6578",  #  비밀번호
+>>>>>>> 17387eec52a8e7bc184c0a20497c1fac1b849b4f
 }
 SIM_THRESHOLD = 0.25  # 코사인 유사도 임계값 (낮을수록 더 많은 결과 허용)
 
@@ -113,6 +119,7 @@ def generate_answer(user_query, category=None):
         context_items.append(f"-----\n본문:\n{text}\n메타데이터:\n{meta_str}")
     context = "\n".join(context_items)
 
+<<<<<<< HEAD
     # LLM 호출 - LLM이 더 잘 답변하도록 영어로 프롬프트 작성
     system = """
 You are the KW University Chatbot.
@@ -136,6 +143,15 @@ INSTRUCTIONS:
    "죄송합니다. 관련 정보를 찾지 못했습니다."
 3. Keep your answer clear and concise.
 """
+=======
+    # LLM 호출
+    system = """
+    당신은 광운대학교 KW Chatbot입니다.
+    아래 CONTEXT의 정보만을 근거로 사용자의 질문에 정확히 답하세요.
+    CONTEXT에 없는 정보는 "죄송합니다. 관련 정보를 찾지 못했습니다."라고 답하세요.
+    """
+    user = f"{context}\n\n질문: {user_query}\n\n정답:"
+>>>>>>> 17387eec52a8e7bc184c0a20497c1fac1b849b4f
 
     try:
         resp = client.chat.completions.create(

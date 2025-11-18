@@ -4,7 +4,7 @@ import psycopg2
 conn = psycopg2.connect(
     host="localhost",
     port="5432",
-    dbname="KW  __chatbot",  # 통합 대상 DB
+    dbname="KWchatbot",  # 통합 대상 DB
     user="postgres",
     password="kk003300kk*"
 )
