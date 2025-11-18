@@ -17,9 +17,9 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_MODEL = "gpt-3.5-turbo"
 PG_DSN = {
     "host": "localhost",
-    "dbname": "kwchatbot",
+    "dbname": "KW_CHAT123",
     "user": "postgres",
-    "password": "3864"
+    "password": "kk003300kk*"
 }
 SIM_THRESHOLD = 0.25
 
