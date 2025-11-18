@@ -57,16 +57,17 @@ const MainPage = () => {
           <span className="text-[#840E1E] font-semibold text-[20px]">동아리</span>
         </button>
 
-        {/* 취업 */}
+        {/* 진로 로드맵 추천 */}
         <button
-          onClick={() => (window.location.href = "/job")}
-          className={`w-[200px] h-[200px] bg-white border-2 border-[#840E1E] rounded-[15px] 
-          shadow-md flex flex-col items-center justify-center 
-          hover:scale-105 transition-transform p-[10px]`}
+         onClick={() => (window.location.href = "/job")}
+         className={`w-[200px] h-[200px] bg-white border-2 border-[#840E1E] rounded-[15px] 
+         shadow-md flex flex-col items-center justify-center 
+         hover:scale-105 transition-transform p-[10px]`}
         >
-          <img src={job} alt="Job" className="w-[50px] mb-[8px]" />
-          <span className="text-[#840E1E] font-semibold text-[20px]">취업 정보</span>
-        </button>
+  <img src={job} alt="Career Roadmap" className="w-[50px] mb-[8px]" />
+  <span className="text-[#840E1E] font-semibold text-[20px]">진로 로드맵 추천</span>
+</button>
+
       </div>
 
       {/* 하단 로고 */}
