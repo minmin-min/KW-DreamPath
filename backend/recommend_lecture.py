@@ -15,13 +15,13 @@ load_dotenv()
 # ===== 기본 설정 =====
 PG_DSN = {
     "host": "localhost",
-    "dbname": "KW_CHAT123",
+    "dbname": "kwchatbot_lec",
     "user": "postgres",
     "password": "kk003300kk*"
 }
 
 # ===== SBERT 모델 =====
-MODEL_PATH = "jhgan/ko-sbert-sts"
+MODEL_PATH = "triplet_finetuned_model"
 model = SentenceTransformer(MODEL_PATH)
 
 

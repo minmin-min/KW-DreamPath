@@ -15,13 +15,13 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 # ===== DB 설정 =====
 PG_DSN = {
     "host": "localhost",
-    "dbname": "kwchatbot",
+    "dbname": "kwchatbot_lec",
     "user": "postgres",
     "password": "3864"
 }
 
 # ===== SBERT 모델 =====
-MODEL_PATH = "jhgan/ko-sbert-sts"
+MODEL_PATH = "triplet_finetuned_model"
 model = SentenceTransformer(MODEL_PATH)
 
 # ============================================
@@ -30,7 +30,8 @@ model = SentenceTransformer(MODEL_PATH)
 category_map = {
     "강의": ["강의정보", "학과정보"],
     "동아리": ["동아리"],
-    "취업 정보": ["취업"],
+    "내일배움": ["내일배움"],
+    "직업정보": ["직업정보"],
     "학부연구생": ["연구실 정보"]
 }
 
@@ -158,7 +159,7 @@ def print_top3_and_llm(category_key, user_query):
 # 🔹 4️⃣ 실행
 # ============================================
 if __name__ == "__main__":
-    category_input = "강의"
-    query = " 인공지능 관련 전공 수업 알려줘  "
+    category_input = "강의정보"
+    query = "인공지능 관련 강의 알려줘 "
 
     print_top3_and_llm(category_input, query)

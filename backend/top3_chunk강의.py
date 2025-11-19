@@ -14,14 +14,16 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 # ===== DB 설정 =====
 PG_DSN = {
     "host": "localhost",
-    "dbname": "kwchatbot",
+    "dbname": "kwchatbot_lec",
     "user": "postgres",
     "password": "3864"
 }
 
 # ===== SBERT 모델 =====
-MODEL_PATH = "jhgan/ko-sbert-sts"
+
+MODEL_PATH = "triplet_finetuned_model"
 model = SentenceTransformer(MODEL_PATH)
+
 
 
 # ============================================
@@ -182,6 +184,6 @@ def print_docs_and_llm(category_key, user_query):
 # ============================================
 if __name__ == "__main__":
     category = "강의정보"
-    query = "인공지능 관련 전공 수업 알려줘"
+    query = "인공지능 관련 강의 알려줘"
 
     print_docs_and_llm(category, query)
