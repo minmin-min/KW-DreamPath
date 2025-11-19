@@ -1,2 +1,4 @@
 kwchatback/DB통합본.json
 backend/.env
+backend/triplet_finetuned_model/
+triplet_finetuned_model/
