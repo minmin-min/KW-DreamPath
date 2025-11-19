@@ -7,7 +7,6 @@ function Info() {
     <div className="w-8/12 bg-white shadow-md font-sans">
       
       {/* 1. 마스코트 메시지 부분 */}
-      {/* **수정: pt-8 추가**하여 상단 패딩 복원 */}
       <div className="flex justify-start items-center pl-8 pr-16 pt-8 pb-4"> 
         {/* 마스코트 이미지 */}
         <img 
@@ -16,7 +15,7 @@ function Info() {
           className="w-[120px] h-[120px] object-contain flex-shrink-0 ml-[-20px]" 
         />
 
-        {/* 메시지 박스 (flex-1 유지) */}
+        {/* 메시지 박스 */}
         <div className="flex-1 ml-1"> 
           <div
             className="bg-red-100/70 border-l-4 border-[#840E1E] p-4 text-gray-800 
@@ -32,7 +31,7 @@ function Info() {
         </div>
       </div>
       
-      {/* 2. 검색 입력 필드 부분 (기존 유지) */}
+      {/* 2. 검색 입력 필드 부분 */}
       <div className="px-16 py-8 pt-0">
         <div className="relative border border-gray-300 rounded-lg overflow-hidden shadow-inner">
           <input

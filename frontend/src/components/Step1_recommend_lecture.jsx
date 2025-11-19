@@ -3,7 +3,7 @@ import React from "react";
 import step1_ground from "../assets/step1_ground.png";
 import mascot from "../assets/mascot.png";
 
-// 강의 데이터 하드코딩 (이 부분은 동일)
+// 강의 데이터 하드코딩
 const recommendedCourses = [
   {
     title: "데이터 마이닝",

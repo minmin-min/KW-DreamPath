@@ -4,7 +4,6 @@ import step2_sprout from "../assets/step2_sprout.png";
 import mascot from "../assets/mascot.png";
 
 // 활동 카드 공통 스타일
-// **수정: border-gray-300 -> border-[#840E1E]로 변경**
 const cardStyle = "w-full bg-white border border-[#840E1E] rounded-lg p-4 shadow-sm relative h-[180px]";
 
 function Step2_recommend_club() {
