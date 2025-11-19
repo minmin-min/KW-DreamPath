@@ -15,7 +15,7 @@ load_dotenv()
 # ===== 기본 설정 =====
 PG_DSN = {
     "host": "localhost",
-    "dbname": "KW_CHAT123",
+    "dbname": "kwchatbot",
     "user": "postgres",
     "password": "kk003300kk*"
 }

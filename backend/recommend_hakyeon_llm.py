@@ -17,7 +17,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_MODEL = "gpt-3.5-turbo"
 PG_DSN = {
     "host": "localhost",
-    "dbname": "KW_CHAT123",
+    "dbname": "kwchatbot",
     "user": "postgres",
     "password": "kk003300kk*"
 }

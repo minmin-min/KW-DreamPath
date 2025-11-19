@@ -14,7 +14,7 @@ load_dotenv()
 # ===== 기본 설정 =====
 PG_DSN = {
     "host": "localhost",
-    "dbname": "KW_CHAT123",   # ⚠️ DB 이름 확인
+    "dbname": "kwchatbot",   # ⚠️ DB 이름 확인
     "user": "postgres",
     "password": "kk003300kk*"       # ⚠️ 본인 비밀번호 맞게
 }
