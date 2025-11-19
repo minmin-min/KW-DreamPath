@@ -17,7 +17,7 @@ PG_DSN = {
     "host": "localhost",
     "dbname": "KWchatbot",  #  DB 이름
     "user": "postgres",
-    "password": "130802",  #  비밀번호
+    "password": "6578",  #  비밀번호
 }
 SIM_THRESHOLD = 0.25  # 코사인 유사도 임계값 (낮을수록 더 많은 결과 허용)
 

@@ -10,3 +10,5 @@ backend/triplet_finetuned_model/
 *.bin
 *.pt
 *.safetensors
+backend/triplet_finetuned_model/
+triplet_finetuned_model/
