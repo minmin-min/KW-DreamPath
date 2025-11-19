@@ -11,7 +11,7 @@ function ChatBox({ title }) {
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef(null);
 
-  // ✅ 메시지 전송 (백엔드 연결)
+  // 메시지 전송 (백엔드 연결)
   const handleSend = async () => {
     if (input.trim() === "") return;
 
