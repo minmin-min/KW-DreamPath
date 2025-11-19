@@ -15,15 +15,9 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_MODEL = "gpt-3.5-turbo"  # 필요 시 gpt-4o 등으로 변경 가능
 PG_DSN = {
     "host": "localhost",
-<<<<<<< HEAD
     "dbname": "KW_chatbot",  #  DB 이름
     "user": "postgres",
     "password": "130802",  #  비밀번호
-=======
-    "dbname": "KWchatbot",  #  DB 이름
-    "user": "postgres",
-    "password": "6578",  #  비밀번호
->>>>>>> 17387eec52a8e7bc184c0a20497c1fac1b849b4f
 }
 SIM_THRESHOLD = 0.25  # 코사인 유사도 임계값 (낮을수록 더 많은 결과 허용)
 
@@ -53,12 +47,25 @@ def _fetch_top3_chunks(query_embedding, categories):
         """,
         (categories, query_embedding),
     )
+    cur.execute(
+        """
+        SELECT dc.chunk_text, dc.chunk_metadata
+        FROM embeddings e
+        JOIN doc_chunks dc ON e.chunk_id = dc.chunk_id
+        WHERE dc.chunk_metadata->>'카테고리' = ANY(%s)
+        ORDER BY e.embedding <#> %s::vector
+        LIMIT 3
+        """,
+        (categories, query_embedding),
+    )
 
     rows = cur.fetchall()
 
     #  검색된 청크를 콘솔에 출력
+    #  검색된 청크를 콘솔에 출력
     print("\n========== 🔍 검색된 Top-3 청크 ==========")
     if not rows:
+        print("검색 결과가 없습니다.")
         print("검색 결과가 없습니다.")
     else:
         for i, (text, meta) in enumerate(rows, 1):
@@ -119,7 +126,6 @@ def generate_answer(user_query, category=None):
         context_items.append(f"-----\n본문:\n{text}\n메타데이터:\n{meta_str}")
     context = "\n".join(context_items)
 
-<<<<<<< HEAD
     # LLM 호출 - LLM이 더 잘 답변하도록 영어로 프롬프트 작성
     system = """
 You are the KW University Chatbot.
@@ -143,15 +149,6 @@ INSTRUCTIONS:
    "죄송합니다. 관련 정보를 찾지 못했습니다."
 3. Keep your answer clear and concise.
 """
-=======
-    # LLM 호출
-    system = """
-    당신은 광운대학교 KW Chatbot입니다.
-    아래 CONTEXT의 정보만을 근거로 사용자의 질문에 정확히 답하세요.
-    CONTEXT에 없는 정보는 "죄송합니다. 관련 정보를 찾지 못했습니다."라고 답하세요.
-    """
-    user = f"{context}\n\n질문: {user_query}\n\n정답:"
->>>>>>> 17387eec52a8e7bc184c0a20497c1fac1b849b4f
 
     try:
         resp = client.chat.completions.create(
