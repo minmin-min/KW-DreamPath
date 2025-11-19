@@ -4,7 +4,8 @@ import step2_sprout from "../assets/step2_sprout.png";
 import mascot from "../assets/mascot.png";
 
 // 활동 카드 공통 스타일
-const cardStyle = "w-full bg-white border border-gray-300 rounded-lg p-4 shadow-sm relative h-[180px]";
+// **수정: border-gray-300 -> border-[#840E1E]로 변경**
+const cardStyle = "w-full bg-white border border-[#840E1E] rounded-lg p-4 shadow-sm relative h-[180px]";
 
 function Step2_recommend_club() {
   return (
@@ -21,13 +22,13 @@ function Step2_recommend_club() {
         <div className="flex-1">
           <h3 className="text-lg font-semibold text-gray-700 mb-3">동아리</h3>
           <div className={cardStyle}>
-            <p className="text-lg font-bold text-gray-800 mb-2 text-center">로봇</p>
+            <p className="text-lg font-bold text-gray-800 mb-2 text-center">로빛</p>
             <p className="text-sm text-gray-600">분야:</p>
             <p className="text-sm text-gray-600">동아리 소개:</p>
             <img 
                 src={mascot}
                 alt="마스코트" 
-                className="absolute bottom-1 right-2 w-8 h-auto opacity-70" // h-8 -> h-auto
+                className="absolute bottom-1 right-2 w-8 h-auto opacity-70"
             />
           </div>
         </div>
@@ -42,7 +43,7 @@ function Step2_recommend_club() {
             <img 
                 src={mascot}
                 alt="마스코트" 
-                className="absolute bottom-1 right-2 w-8 h-auto opacity-70" // h-8 -> h-auto
+                className="absolute bottom-1 right-2 w-8 h-auto opacity-70"
             />
           </div>
         </div>
